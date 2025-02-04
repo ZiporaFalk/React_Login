@@ -40,7 +40,7 @@ function RecipeForm() {
     };
     return (
         <Box component="form" onSubmit={handleSubmit(onSubmit)} sx={{ maxWidth: 500, mx: "auto", p: 3, bgcolor: "#f9f9f9", borderRadius: 2, boxShadow: 3 }}>
-            <Typography variant="h5" gutterBottom>📜 הוסף מתכון</Typography>
+            <Typography variant="h5" gutterBottom sx={{ color: "rgb(219, 30, 40)" }}>📜 הוסף מתכון</Typography>
             <TextField
                 label="שם המתכון"
                 fullWidth
@@ -57,7 +57,7 @@ function RecipeForm() {
                 error={!!errors.description}
                 helperText={errors.description?.message}
             />
-            <Typography variant="subtitle1">רשימת רכיבים:</Typography>
+            <Typography variant="subtitle1" sx={{ color: "rgb(219, 30, 40)" }}>רשימת רכיבים:</Typography>
             {fields.map((item, index) => (
                 <Box key={item.id} sx={{ display: "flex", alignItems: "center", gap: 1, mt: 1 }}>
                     <TextField
@@ -67,11 +67,11 @@ function RecipeForm() {
                         error={!!errors.ingredients?.[index]}
                         helperText={errors.ingredients?.[index]?.message}
                     />
-                    <IconButton onClick={() => remove(index)} color="error"><RemoveCircleOutline /></IconButton>
+                    <IconButton onClick={() => remove(index)} sx={{ color: "rgb(219, 30, 40)" }}><RemoveCircleOutline /></IconButton>
                 </Box>
             ))}
-            <Button onClick={() => append("")} variant="contained" startIcon={<AddCircleOutline />} sx={{ mt: 2 }}>הוסף רכיב</Button>
-            {errors.ingredients && <Typography color="error">{errors.ingredients.message}</Typography>}
+            <Button onClick={() => append("")} variant="contained" startIcon={<AddCircleOutline />}  sx={{ mt: 2,background: "rgb(219, 30, 40)" }}>הוסף רכיב</Button>
+            {errors.ingredients && <Typography sx={{ color: "rgb(219, 30, 40)" }}>{errors.ingredients.message}</Typography>}
             <TextField
                 label="אופן הכנה"
                 multiline
@@ -82,7 +82,7 @@ function RecipeForm() {
                 error={!!errors.instructions}
                 helperText={errors.instructions?.message}
             />
-            <Button type="submit" variant="contained" color="primary" fullWidth sx={{ mt: 3 }}>📩 שלח מתכון</Button>
+            <Button type="submit" variant="contained" color="primary" fullWidth sx={{ mt: 3, background: "rgb(219, 30, 40)"}}>📩 שלח מתכון</Button>
         </Box>
     );
 }

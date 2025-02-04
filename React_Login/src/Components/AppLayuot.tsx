@@ -4,15 +4,17 @@ import HomePage from "./HomePage"
 
 
 const AppLayuot = () => {
-    return (<>
 
+    return (<>
         <header>
             <HomePage ></HomePage>
         </header>
+        <h1>אתר המתכונים שלי</h1>
         <div >
             <Outlet />
         </div>
     </>)
+
 }
 
 export default AppLayuot
