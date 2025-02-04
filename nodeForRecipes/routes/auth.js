@@ -11,7 +11,6 @@ const dbPath = path.join(__dirname, '../db/db.json');
 
 // רישום משתמש חדש
 router.post('/register', (req, res) => {
-    //alert('register');
     const { familyname, name, password } = req.body;
     const db = JSON.parse(fs.readFileSync(dbPath));
     if (db.users.find(user => user.familyname === familyname && user.password == password)) {
@@ -21,12 +20,8 @@ router.post('/register', (req, res) => {
         id: Date.now(),
         name,
         familyname,
-        password//,
-        // email,
-        // address,
-        // phone // במציאות – להצפין סיסמא
+        password  // במציאות – להצפין סיסמא
     };
-    console.log("push");
     db.users.push(newUser);
     fs.writeFileSync(dbPath, JSON.stringify(db, null, 2));
     res.status(201).json({ message: "User registered successfully", userId: newUser.id });
@@ -34,10 +29,8 @@ router.post('/register', (req, res) => {
 
 // התחברות
 router.post('/login', (req, res) => {
-    //alert('login');
     const { familyname, name, password } = req.body;
     const db = JSON.parse(fs.readFileSync(dbPath));
-    console.log(req);
     const user = db.users.find(user => user.familyname === familyname && user.password === password && user.name == name);
     if (!user) {
         return res.status(401).json({ message: "Invalid credentials" });
@@ -53,11 +46,11 @@ router.put('/', authMiddleware, (req, res) => {
     if (!user) {
         return res.status(404).json({ message: "User not found" });
     }
-    user.firstName = firstName;
-    user.lastName = lastName;
-    user.email = email;
-    user.address = address;
-    user.phone = phone;
+    user.firstName = firstName
+    user.lastName = lastName
+    user.email = email
+    user.address = address
+    user.phone = phone
     fs.writeFileSync(dbPath, JSON.stringify(db, null, 2));
     res.json(user);
 });

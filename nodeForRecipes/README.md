@@ -58,12 +58,12 @@ NodeForRecipes is a simple Node.js application that allows users to register, lo
 - **Add a new recipe**
     - `POST /api/recipes`
     - Headers: `{ "user-id": "123" }`
-    - Request body: `{ "title": "Recipe Title", "description": "Recipe Description" }`
+    - Request body: `{ "title": "Recipe Title", "description": "Recipe Description", "ingredients": ["ingredient1", "ingredient2"], "instructions": "Step by step instructions" }`
     - Response: `{ "message": "Recipe added", "recipe": { ...newRecipe } }`
 
 ## Middleware
 
 - **authMiddleware**
-    - This middleware checks if the user is authenticated by verifying the [user-id](http://_vscodecontentref_/0) header.
+    - This middleware checks if the user is authenticated by verifying the `user-id` header.
 
 ## Project Structure

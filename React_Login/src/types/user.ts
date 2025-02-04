@@ -1,9 +1,11 @@
 export type User = {
-    Id?:number
+    Id: number | null
     familyname: string,
-    name: string, 
+    name: string,
     email: string,
     password: string,
     address: string,
     phon: string
 }  
+
+
