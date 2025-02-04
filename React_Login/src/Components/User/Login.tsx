@@ -60,7 +60,6 @@ const Login = () => {
             }
         }
         if (res) {
-            console.log(action.data.familyname + "0000");
             userDispatch(action)
             handleClose();
             settypebutton(false);
@@ -73,10 +72,8 @@ const Login = () => {
             <ButtonGroup variant="text" aria-label="Basic button group">
                 <Button variant="outlined" onClick={() => { handleOpen(); settypebutton(true); }} color="error" >Login</Button>
                 <Button variant="outlined" onClick={() => { handleOpen(); settypebutton(false); }} color="error" >Register </Button>
-                {islogin && <>
-                    <Button variant="outlined" onClick={() => { setupdate(!isupdate) }} color="error" >Update</Button>
-                    {isupdate && <UpdateUser closeModal={() => setupdate(false)} />}
-                </>}
+                {islogin && <><Button variant="outlined" onClick={() => { setupdate(!isupdate) }} color="error" >Update</Button>
+                    {isupdate && <UpdateUser closeModal={() => setupdate(false)} />}</>}
             </ButtonGroup>
             {islogin && <UserNameAvatar ></UserNameAvatar>}
 

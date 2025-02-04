@@ -86,5 +86,4 @@ function RecipeForm() {
         </Box>
     );
 }
-
 export default RecipeForm;

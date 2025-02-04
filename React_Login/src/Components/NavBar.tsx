@@ -4,7 +4,6 @@ import { TheContextUser } from "./HomePage"
 const stylyLink = {
     color: "rgb(219, 30, 40)"
 }
-
 const NavBar = () => {
     const { user } = useContext(TheContextUser)
     return (<>
